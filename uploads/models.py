@@ -16,6 +16,9 @@ class DataImage(models.Model):
     path = models.ImageField(blank=True, upload_to="img/")
     time = models.DateTimeField(default = timezone.now)
 
+    def get_image_url(self):
+        return '%s%s'%(settings.MEDIA_URL,self.path)
+
     def __str__(self):
         return self.title
 

@@ -7,7 +7,7 @@
     {% block content %}
     <h2> The file has been uploaded!!</h2>
 
-    <img src="{{ dataImage.path }}" alt="{{ dataImage.title }}">
+    <img src="{{ dataImage.get_image_url }}"">
 
     {% endblock %}
 </body>

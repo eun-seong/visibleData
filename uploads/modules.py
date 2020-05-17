@@ -18,13 +18,13 @@ def Visualizing():
 
     with open(settings.MEDIA_ROOT+file_list[0], mode='rb') as csv_file:
         file_db = FileUpload.objects.all().order_by('-time')
-        directory = settings.MEDIA_ROOT+'img/'+file_db[0].title+'.jpg'
+        file_directory='img/'+file_db[0].title+'.jpg'
 
         reader = pd.read_csv(csv_file)
         fig = sns.pairplot(reader, hue='Species')
-        fig.savefig(directory)
+        fig.savefig(settings.MEDIA_ROOT+file_directory)
 
-        img = DataImage(path=directory, title=file_db[0].title)
+        img = DataImage(path=file_directory, title=file_db[0].title)
         img.save()
 
 
