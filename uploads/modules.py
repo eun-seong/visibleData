@@ -16,7 +16,7 @@ matplotlib.style.use('ggplot')
 def Visualizing():
     file_list = os.listdir(settings.MEDIA_ROOT)
 
-    with open(settings.MEDIA_ROOT+file_list[0], mode='r') as csv_file:
+    with open(settings.MEDIA_ROOT+file_list[0], mode='rb') as csv_file:
         file_db = FileUpload.objects.all().order_by('-time')
         directory = settings.MEDIA_ROOT+'img/'+file_db[0].title+'.jpg'
 
